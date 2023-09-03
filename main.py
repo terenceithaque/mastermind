@@ -16,6 +16,27 @@ def choisir_couleurs(couleurs_possibles):
     return couleurs_choisies
 
 
-couleurs_possibles = ["bleu", "blanc", "vert", "rouge",
-                      "orange", "noir"]  # Liste des couleurs possibles
-print(choisir_couleurs(couleurs_possibles))
+def comparer_couleurs(liste1, liste2):
+    "Comparer les couleurs contenues dans 2 listes différentes. Cela va nous servir pour comparer les couleurs entrée par le joueur et les couleurs choisies."
+    # Liste dans laquelle on stockera des booléens qui seront True si une couleur est commune aux deux listes, et False si une couleur n'est pas commune aux deux listes.
+    couleurs_communes = []
+    est_commune = False  # Est-ce qu'une couleur est commune aux deux listes ?
+
+    for couleur in liste1:  # Pour chaque couleur de la première liste
+        if couleur in liste2:  # Si la couleur est également présente dans la deuxième liste
+            est_commune = True  # Alors la couleur est commune aux deux listes
+            couleurs_communes.append(est_commune)
+
+        else:
+            est_commune = False  # La couleur n'est pas commune aux deux listes
+            couleurs_communes.append(est_commune)
+
+        est_commune = False  # Réinitialiser la variable est_commune
+
+    return couleurs_communes
+
+
+liste1 = ["bleu", "rouge", "vert", "blanc", "violet"]
+liste2 = ["orange", "noir", "bleu", "vert", "marron"]
+
+print(comparer_couleurs(liste1, liste2))
